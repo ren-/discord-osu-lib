@@ -1,0 +1,3 @@
+# discord-osu-lib
+
+WIP
