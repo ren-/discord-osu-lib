@@ -3,6 +3,7 @@ package api
 import (
 	"encoding/json"
 	"errors"
+	"fmt"
 	"strconv"
 )
 
@@ -119,7 +120,8 @@ func (c Config) GetRecentPlays(USER_ID string, GAME_TYPE string, LIMIT int) ([]S
 
 	if err != nil {
 		//fmt.Println(err)
-		//fmt.Println(string(html))
+		fmt.Println(url)
+		fmt.Println(string(html))
 		return nil, errors.New("JSON(GetRecentPlays): The response was not in JSON format, probably server error.")
 	}
 
