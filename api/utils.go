@@ -4,10 +4,15 @@ import (
 	"errors"
 	"io/ioutil"
 	"net/http"
+	"time"
 )
 
 func GetResults(URL string) ([]byte, error) {
-	res, err := http.Get(URL)
+
+	var netClient = &http.Client{
+		Timeout: time.Second * 10,
+	}
+	res, err := netClient.Get(URL)
 
 	if err != nil {
 		return nil, errors.New("HTTP: Could not open a connection to the Osu! API server.")
